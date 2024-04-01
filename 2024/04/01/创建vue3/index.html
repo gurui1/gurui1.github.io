@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>模版 | Hexo</title>
+  <title>创建vue3 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="模版 | Hexo">
+  <meta name="description" content="创建vue3 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="sssawdwa">
 <meta property="og:type" content="article">
@@ -237,9 +237,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-moban" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-创建vue3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">模版</h1>
+        <h1 class="article-title">创建vue3</h1>
     
     <div class="article-meta">
         
@@ -257,7 +257,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-01 16:19:37'>2024-03-19 17:29</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-01 19:23:29'>2024-04-01 16:17</time>
         
     </div>
     <div class="article-meta">
@@ -279,7 +279,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">1 新建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85vue-router"><span class="toc-text">2 安装vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85%E8%B7%AF%E7%94%B1%E5%91%BD%E4%BB%A4"><span class="toc-text">2.1 安装路由命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AErouter%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 配置router文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#src%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAroutes%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%9C%A8router%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAindex-ts%E6%96%87%E4%BB%B6%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="toc-text">src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%9C%A8main-ts%E4%B8%AD%E5%BC%95%E7%94%A8router%E4%B8%8B%E7%9A%84index-ts-%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="toc-text">2.3 在main.ts中引用router下的index.ts 进行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-app-vue%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6router-view"><span class="toc-text">2.4 app.vue中添加路由组件router-view</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85pinia-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-text">3 安装pinia 状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E6%89%93%E5%8C%85"><span class="toc-text">4 配置打包</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -295,7 +295,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>sss<br>awdwa</p>
+        <h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1 新建项目"></a>1 新建项目</h2><p> 新建文件夹 win+r cd进入<br>输入 npm create vite@latest<br>输入 项目名 选择 vue ts<br>cd进入项目 cnpm i 下载依赖<br>npm run dev 运行  </p>
+<h2 id="2-安装vue-router"><a href="#2-安装vue-router" class="headerlink" title="2 安装vue-router"></a>2 安装vue-router</h2><p>vue3需要安装4.0以上版本<br>vue2最好安装4.0以下版本</p>
+<h3 id="2-1-安装路由命令"><a href="#2-1-安装路由命令" class="headerlink" title="2.1 安装路由命令"></a>2.1 安装路由命令</h3><p>npm install vue-router@next –save &#x2F;&#x2F; 安装最新版本router </p>
+<p>&#x2F;&#x2F; 如需按版本安装，需将命令行中 next 改成相应的版本。如下：<br>&#x2F;&#x2F; npm install <a href="mailto:&#118;&#117;&#101;&#x2d;&#114;&#x6f;&#x75;&#x74;&#x65;&#114;&#x40;&#x34;&#46;&#48;&#x2e;&#x31;&#51;">&#118;&#117;&#101;&#x2d;&#114;&#x6f;&#x75;&#x74;&#x65;&#114;&#x40;&#x34;&#46;&#48;&#x2e;&#x31;&#51;</a> –save</p>
+<p>安装完成后，可在package.json中查看vue-router是否安装完成</p>
+<h3 id="2-2-配置router文件"><a href="#2-2-配置router文件" class="headerlink" title="2.2 配置router文件"></a>2.2 配置router文件</h3><h4 id="src目录下新建一个routes文件夹，在router文件夹里新建一个index-ts文件，代码如下"><a href="#src目录下新建一个routes文件夹，在router文件夹里新建一个index-ts文件，代码如下" class="headerlink" title="src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:"></a>src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:</h4><p>import { createRouter, createWebHistory, RouteRecordRaw } from “vue-router”;</p>
+<p>&#x2F;&#x2F; 1. 配置路由<br>const routes: Array<RouteRecordRaw> &#x3D; [<br>  {<br>    path: “&#x2F;“, &#x2F;&#x2F; 默认路由 home页面<br>    component: () &#x3D;&gt; import(“..&#x2F;views&#x2F;home&#x2F;index.vue”),<br>  },</p>
+<p>];<br>&#x2F;&#x2F; 2.返回一个 router 实列，为函数，配置 history 模式<br>const router &#x3D; createRouter({<br>  history: createWebHistory(),<br>  routes,<br>});</p>
+<p>&#x2F;&#x2F; 3.导出路由   去 main.ts 注册 router.ts<br>export default router</p>
+<h3 id="2-3-在main-ts中引用router下的index-ts-进行配置"><a href="#2-3-在main-ts中引用router下的index-ts-进行配置" class="headerlink" title="2.3 在main.ts中引用router下的index.ts 进行配置"></a>2.3 在main.ts中引用router下的index.ts 进行配置</h3><p>import { createApp } from ‘vue’ &#x2F;&#x2F; 安装unplugin-auto-import 可注释<br>import App from ‘.&#x2F;App.vue’<br>import router from “.&#x2F;router&#x2F;index” &#x2F;&#x2F; 引入router</p>
+<p>const app &#x3D; createApp(App)<br>app.use(router)<br>app.mount(‘#app’)</p>
+<h3 id="2-4-app-vue中添加路由组件router-view"><a href="#2-4-app-vue中添加路由组件router-view" class="headerlink" title="2.4 app.vue中添加路由组件router-view"></a>2.4 app.vue中添加路由组件router-view</h3><p>在div里面插入router-view</p>
+<h2 id="3-安装pinia-状态管理"><a href="#3-安装pinia-状态管理" class="headerlink" title="3 安装pinia 状态管理"></a>3 安装pinia 状态管理</h2><p>cnpm install pinia<br>新建个store<br>main.ts里面挂载 </p>
+<h2 id="4-配置打包"><a href="#4-配置打包" class="headerlink" title="4 配置打包"></a>4 配置打包</h2><p>在package.json里面<br>  “scripts”: {<br>    “dev:staging”: “vite dev –mode staging”,<br>    “build:staging”: “vite build –mode staging”,<br>    “build-only-staging”: “vite build –mode staging”,<br>    “dev”: “vite”,<br>    “build”: “vue-tsc &amp;&amp; vite build”,<br>    “preview”: “vite preview”<br>  },</p>
 
       
        
