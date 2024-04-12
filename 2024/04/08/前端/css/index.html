@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
+  <title>css | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <meta name="description" content="css | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一.外边距塌陷外边距塌路也称外边距合并，在文档流中相邻兄弟或父子关系的块级元素的外边距组合在一起变成单个外边距，只有在上下外边距才会出现塌陷，左右不会出现解析，1.两个嵌套块级元素Q，父元素如果没有上补白和上边框，那么它的上边距会和它的文档流中的的第一个子元素的上边距重叠，取两者较大的值，父元素上的外边距为0，也会发生合并。(通俗来说: 子元素找不到父元素的border或者padding.就会与父">
 <meta property="og:type" content="article">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -268,12 +268,51 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-前端/css" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li></ol></li></ol>
+        <h1 class="article-title">css</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="css">css</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-04-12 21:06:43'>2024-04-08 20:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7"><span class="toc-text">一.外边距塌陷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%96%E8%BE%B9%E8%B7%9D%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F"><span class="toc-text">1.外边距计算方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F-%E7%88%B6%E5%85%83%E7%B4%A0-%EF%BC%88%E8%AE%A9%E5%85%B6%E4%B8%8D%E9%87%8D%E5%90%88%E5%B0%B1%E8%A1%8C%EF%BC%89"><span class="toc-text">2.解决方式(父元素) （让其不重合就行）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-flex-%E5%B8%83%E5%B1%80"><span class="toc-text">二.flex 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8A%E4%B8%8B%E4%BD%9C%E7%94%A8%E5%B1%85%E4%B8%AD"><span class="toc-text">1 上下作用居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-calc-%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9C%A8-CSS-%E4%B8%AD%E6%89%A7%E8%A1%8C%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E7%9A%84%E5%87%BD%E6%95%B0%E3%80%82%E5%AE%83%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%90%84%E7%A7%8D-CSS-%E5%B1%9E%E6%80%A7%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%8C%E4%BE%8B%E5%A6%82%E5%AE%BD%E5%BA%A6%E3%80%81%E9%AB%98%E5%BA%A6%E3%80%81%E8%BE%B9%E8%B7%9D%E7%AD%89%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E5%80%BC"><span class="toc-text">三  calc() 是一个在 CSS 中执行数学计算的函数。它可以在各种 CSS 属性中使用，例如宽度、高度、边距等，用于动态计算值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="toc-text">四 伪元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%8F%AF%E7%82%B9%E5%87%BB%E5%8C%BA%E5%9F%9F"><span class="toc-text">增加可点击区域</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -286,24 +325,72 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> </p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-外边距塌陷"><a href="#一-外边距塌陷" class="headerlink" title="一.外边距塌陷"></a>一.外边距塌陷</h2><p>外边距塌路也称外边距合并，在文档流中相邻兄弟或父子关系的块级元素的外边距组合在一起变成单个外边距，只有在上下外边距才会出现塌陷，左右不会出现<br>解析，1.两个嵌套块级元素Q，父元素如果没有上补白和上边框，那么它的上边距会和它的文档流中的的第一个子元素的上边距重叠，取两者较大的值，父元素上的外边距为0，也会发生合并。(通俗来说: 子元素找不到父元素的border或者padding.就会与父元素上边距重季)<br>2.两人相邻块级元素，如果上面的元素存在外边距margin-bottom,下面的元素存在外边距margin-top,那么它们之间外边距不是margin-bottom + margin-top.而是取两者最人值外边距</p>
+<h3 id="1-外边距计算方式"><a href="#1-外边距计算方式" class="headerlink" title="1.外边距计算方式"></a>1.外边距计算方式</h3><p>1.两个值为正数，取较大值<br>2.两个值为负数，取绝对值Q较大的值<br>3.一正一负，取两个值的和</p>
+<h3 id="2-解决方式-父元素-（让其不重合就行）"><a href="#2-解决方式-父元素-（让其不重合就行）" class="headerlink" title="2.解决方式(父元素) （让其不重合就行）"></a>2.解决方式(父元素) （让其不重合就行）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.border: 1px solid <span class="comment">#fff </span></span><br><span class="line">2.<span class="built_in">float</span>: left.</span><br><span class="line">3.position: absolute</span><br><span class="line">4.padding: 1px </span><br><span class="line">5.display: inline-block</span><br><span class="line">6.overflow. hidden</span><br><span class="line">7.overflow: auto</span><br></pre></td></tr></table></figure>
+<h2 id="二-flex-布局"><a href="#二-flex-布局" class="headerlink" title="二.flex 布局"></a>二.flex 布局</h2><h3 id="1-上下作用居中"><a href="#1-上下作用居中" class="headerlink" title="1 上下作用居中"></a>1 上下作用居中</h3><pre><code>display: flex;
+justify-content: center; /* 水平居中 */
+align-items: center; /* 垂直居中 */ 
+</code></pre>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>#all {</p>
+<pre><code>/* 在外部套边框， */
+/* border: 1px solid blue; 
+</code></pre>
+<p>  &#x2F;* 改为在内部套边框  该属性为不改变盒子大小*&#x2F;<br>    box-sizing: border-box;<br>    display: flex;<br>    flex-direction: row;<br>    &#x2F;* 对齐方式 <em>&#x2F;<br>    &#x2F;</em> 在副轴上 <em>&#x2F;<br>    &#x2F;</em> align-items:baseline; <em>&#x2F;<br>    &#x2F;</em> 在主轴上 <em>&#x2F;<br>    &#x2F;</em> justify-content:space-between; <em>&#x2F;<br>    &#x2F;</em> 换行 默认是nowarp 当子元素总宽度超出父容器时 由于默认的flex-shrink为 1 是适应缩小的 故不会超出 故而达不到我们设定的大小需求<br>    设置换行后 满足需求<br>    *&#x2F;<br>    flex-wrap: wrap;<br>}</p>
+<p>.one {</p>
+<pre><code>/* width: max-content; */
+/* min-content 该段文字内最长的单词的长度 a，b 也算一个 
+    max-content 元素根据内容自动调整宽度 就不会默认去使用父元素的宽度 永不换行 会超出父容器宽度 若不加 默认超出父容器宽度时换行 
+    Flexbox 布局中的子元素确实会默认采用 width: max-content;
+        ，以便尽可能地展示其内容。这意味着默认情况下，子元素会根据其内容的宽度进行调整，而不是被强制拉伸到填充其父容器的宽度。
+    */
+/* 上下 1 左右 10 */
+/* margin: 1px 10px; */
+/* flex-grow,flex-shrink,和 flex-basis */
+/* 初始大小 */
+/* flex-basis: 300px; */
 
-        </article>
-        
-        
+/* flex: 1; */ 均分剩下的空间 
+/* 是否自适应缩小 */
+/* flex-shrink: 1; */
+flex: 1 1 auto;
+/* 表示该 flex 项会均匀地占据剩余空间，并且允许缩小到其初始大小。 */
+/* flex: 1;给定了一个固定的初始大小（0%），而 flex-grow: 1;
+    则使用了默认的 flex-basis，其初始大小会根据内容和父容器的大小动态确定。 */
+flex-basis: calc(20% - 2px);
+/* 计算每个子元素的基础大小，减去边框的宽度 */
+margin: 1px;
+/* 为了在子元素之间添加间距 */
+</code></pre>
+<p>}</p>
+<p>.one:nth-child(1) {<br>    &#x2F;* flex-basis: 3; <em>&#x2F;<br>    &#x2F;</em> max-width: 200px;<br>    word-wrap: break-word; <em>&#x2F;<br>    &#x2F;</em> 限制其在大宽度 正常来说限制后超出的数据会不显示 word-wrap: break-word; 会让其超出的数据自动换行 <em>&#x2F;<br>    &#x2F;</em> flex: 6; <em>&#x2F;<br>    &#x2F;</em> flex-shrink: 0; <em>&#x2F;<br>    &#x2F;</em> 不允许缩小  <em>&#x2F;<br>    &#x2F;</em> font-size: 18px; *&#x2F;<br>}</p>
+<h2 id="三-calc-是一个在-CSS-中执行数学计算的函数。它可以在各种-CSS-属性中使用，例如宽度、高度、边距等，用于动态计算值"><a href="#三-calc-是一个在-CSS-中执行数学计算的函数。它可以在各种-CSS-属性中使用，例如宽度、高度、边距等，用于动态计算值" class="headerlink" title="三  calc() 是一个在 CSS 中执行数学计算的函数。它可以在各种 CSS 属性中使用，例如宽度、高度、边距等，用于动态计算值"></a>三  calc() 是一个在 CSS 中执行数学计算的函数。它可以在各种 CSS 属性中使用，例如宽度、高度、边距等，用于动态计算值</h2><p>width: calc(100% - 20px); &#x2F;* 宽度为父容器宽度减去 20 像素 <em>&#x2F;<br>height: calc(50vh + 50px); &#x2F;</em> 高度为视窗高度的一半加上 50 像素 <em>&#x2F;<br>margin: calc(10px + 2vmin); &#x2F;</em> 上下左右外边距为 10 像素加上视窗宽度和高度中较小值的 2% *&#x2F;</p>
+<h2 id="四-伪元素"><a href="#四-伪元素" class="headerlink" title="四 伪元素"></a>四 伪元素</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>.a {<br>  height: 40px;<br>  width: 50px;<br>  position: relative;<br>}</p>
+<p>.a::before,<br>.a::after {<br>    content: “￥”;<br>    position: absolute;<br>}</p>
+<p>.a::before {<br>    left: -10px; &#x2F;* 在按钮前面添加￥ *&#x2F;<br>}</p>
+<p>.a::after {<br>    right: -10px; &#x2F;* 在按钮后面添加￥ *&#x2F;<br>}</p>
+<h3 id="增加可点击区域"><a href="#增加可点击区域" class="headerlink" title="增加可点击区域"></a>增加可点击区域</h3><p>有时候，我们可能希望增大一个按钮或链接的点击区域。通过 :before 或 :after 伪元素，可以在视觉上不改变元素，而逻辑上扩展其可点击区域。</p>
+<p>a::after {<br>    content: “”;<br>    position: absolute;<br>    top: -10px; right: -10px; bottom: -10px; left: -10px;<br>}</p>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -312,11 +399,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>

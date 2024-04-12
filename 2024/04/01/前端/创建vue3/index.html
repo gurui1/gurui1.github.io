@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
+  <title>创建vue3 | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <meta name="description" content="创建vue3 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一.外边距塌陷外边距塌路也称外边距合并，在文档流中相邻兄弟或父子关系的块级元素的外边距组合在一起变成单个外边距，只有在上下外边距才会出现塌陷，左右不会出现解析，1.两个嵌套块级元素Q，父元素如果没有上补白和上边框，那么它的上边距会和它的文档流中的的第一个子元素的上边距重叠，取两者较大的值，父元素上的外边距为0，也会发生合并。(通俗来说: 子元素找不到父元素的border或者padding.就会与父">
 <meta property="og:type" content="article">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -268,12 +268,51 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-前端/创建vue3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li></ol></li></ol>
+        <h1 class="article-title">创建vue3</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-04-01 19:23:29'>2024-04-01 16:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">1 新建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85vue-router"><span class="toc-text">2 安装vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85%E8%B7%AF%E7%94%B1%E5%91%BD%E4%BB%A4"><span class="toc-text">2.1 安装路由命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AErouter%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 配置router文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#src%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAroutes%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%9C%A8router%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAindex-ts%E6%96%87%E4%BB%B6%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="toc-text">src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%9C%A8main-ts%E4%B8%AD%E5%BC%95%E7%94%A8router%E4%B8%8B%E7%9A%84index-ts-%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="toc-text">2.3 在main.ts中引用router下的index.ts 进行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-app-vue%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6router-view"><span class="toc-text">2.4 app.vue中添加路由组件router-view</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85pinia-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-text">3 安装pinia 状态管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E6%89%93%E5%8C%85"><span class="toc-text">4 配置打包</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -286,24 +325,40 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> </p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1 新建项目"></a>1 新建项目</h2><p> 新建文件夹 win+r cd进入<br>输入 npm create vite@latest<br>输入 项目名 选择 vue ts<br>cd进入项目 cnpm i 下载依赖<br>npm run dev 运行  </p>
+<h2 id="2-安装vue-router"><a href="#2-安装vue-router" class="headerlink" title="2 安装vue-router"></a>2 安装vue-router</h2><p>vue3需要安装4.0以上版本<br>vue2最好安装4.0以下版本</p>
+<h3 id="2-1-安装路由命令"><a href="#2-1-安装路由命令" class="headerlink" title="2.1 安装路由命令"></a>2.1 安装路由命令</h3><p>npm install vue-router@next –save &#x2F;&#x2F; 安装最新版本router </p>
+<p>&#x2F;&#x2F; 如需按版本安装，需将命令行中 next 改成相应的版本。如下：<br>&#x2F;&#x2F; npm install <a href="mailto:&#118;&#x75;&#101;&#45;&#114;&#x6f;&#x75;&#116;&#101;&#114;&#64;&#x34;&#46;&#x30;&#46;&#x31;&#x33;">&#118;&#x75;&#101;&#45;&#114;&#x6f;&#x75;&#116;&#101;&#114;&#64;&#x34;&#46;&#x30;&#46;&#x31;&#x33;</a> –save</p>
+<p>安装完成后，可在package.json中查看vue-router是否安装完成</p>
+<h3 id="2-2-配置router文件"><a href="#2-2-配置router文件" class="headerlink" title="2.2 配置router文件"></a>2.2 配置router文件</h3><h4 id="src目录下新建一个routes文件夹，在router文件夹里新建一个index-ts文件，代码如下"><a href="#src目录下新建一个routes文件夹，在router文件夹里新建一个index-ts文件，代码如下" class="headerlink" title="src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:"></a>src目录下新建一个routes文件夹，在router文件夹里新建一个index.ts文件，代码如下:</h4><p>import { createRouter, createWebHistory, RouteRecordRaw } from “vue-router”;</p>
+<p>&#x2F;&#x2F; 1. 配置路由<br>const routes: Array<RouteRecordRaw> &#x3D; [<br>  {<br>    path: “&#x2F;“, &#x2F;&#x2F; 默认路由 home页面<br>    component: () &#x3D;&gt; import(“..&#x2F;views&#x2F;home&#x2F;index.vue”),<br>  },</p>
+<p>];<br>&#x2F;&#x2F; 2.返回一个 router 实列，为函数，配置 history 模式<br>const router &#x3D; createRouter({<br>  history: createWebHistory(),<br>  routes,<br>});</p>
+<p>&#x2F;&#x2F; 3.导出路由   去 main.ts 注册 router.ts<br>export default router</p>
+<h3 id="2-3-在main-ts中引用router下的index-ts-进行配置"><a href="#2-3-在main-ts中引用router下的index-ts-进行配置" class="headerlink" title="2.3 在main.ts中引用router下的index.ts 进行配置"></a>2.3 在main.ts中引用router下的index.ts 进行配置</h3><p>import { createApp } from ‘vue’ &#x2F;&#x2F; 安装unplugin-auto-import 可注释<br>import App from ‘.&#x2F;App.vue’<br>import router from “.&#x2F;router&#x2F;index” &#x2F;&#x2F; 引入router</p>
+<p>const app &#x3D; createApp(App)<br>app.use(router)<br>app.mount(‘#app’)</p>
+<h3 id="2-4-app-vue中添加路由组件router-view"><a href="#2-4-app-vue中添加路由组件router-view" class="headerlink" title="2.4 app.vue中添加路由组件router-view"></a>2.4 app.vue中添加路由组件router-view</h3><p>在div里面插入router-view</p>
+<h2 id="3-安装pinia-状态管理"><a href="#3-安装pinia-状态管理" class="headerlink" title="3 安装pinia 状态管理"></a>3 安装pinia 状态管理</h2><p>cnpm install pinia<br>新建个store<br>main.ts里面挂载 </p>
+<h2 id="4-配置打包"><a href="#4-配置打包" class="headerlink" title="4 配置打包"></a>4 配置打包</h2><p>在package.json里面<br>  “scripts”: {<br>    “dev:staging”: “vite dev –mode staging”,<br>    “build:staging”: “vite build –mode staging”,<br>    “build-only-staging”: “vite build –mode staging”,<br>    “dev”: “vite”,<br>    “build”: “vue-tsc &amp;&amp; vite build”,<br>    “preview”: “vite preview”<br>  },</p>
 
-        </article>
-        
-        
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -312,11 +367,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
