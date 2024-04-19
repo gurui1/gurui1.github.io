@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>字符串方法 | Hexo</title>
+  <title>html | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="字符串方法 | Hexo">
+  <meta name="description" content="html | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="一 详解TCP 详解TCP 二 WebSocket WebSocket 三 HTTP协议 WebSocket 四 详解HTTP协议和HTTPS协议 详解HTTP协议和HTTPS协议 五  cookie 类似于localstore和sessionstore  只是存储的方式不同 都是浏览器自带的  Cookie是一种在客户端存储数据的小型文本文件，由服务器发送给浏览器，并保存在用户的计算机上。它通常">
 <meta property="og:type" content="article">
@@ -290,9 +290,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-前端/字符串方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-前端/html" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">字符串方法</h1>
+        <h1 class="article-title">html</h1>
     
     <div class="article-meta">
         
@@ -310,7 +310,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-19 15:47:45'>2024-03-17 16:04</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-15 16:10:01'>2024-04-14 15:43</time>
         
     </div>
     <div class="article-meta">
@@ -332,7 +332,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#concat-%EF%BC%9A%E7%94%A8%E4%BA%8E%E8%BF%9E%E6%8E%A5%E4%B8%A4%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E6%96%B0%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%82"><span class="toc-text">concat()：用于连接两个或多个字符串，并返回新的字符串。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#includes-%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%BF%94%E5%9B%9E-true-%E6%88%96-false%E3%80%82"><span class="toc-text">includes()：用于判断一个字符串中是否包含指定的子字符串，返回 true 或 false。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#indexOf-%EF%BC%9A%E7%94%A8%E4%BA%8E%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E6%89%BE%E5%88%B0%EF%BC%8C%E5%88%99%E8%BF%94%E5%9B%9E-1%E3%80%82"><span class="toc-text">indexOf()：用于返回一个字符串在另一个字符串中第一次出现的位置，如果没有找到，则返回 - 1。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#charAt-%EF%BC%9A%E7%94%A8%E4%BA%8E%E8%BF%94%E5%9B%9E%E6%8C%87%E5%AE%9A%E7%B4%A2%E5%BC%95%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AD%97%E7%AC%A6%E3%80%82"><span class="toc-text">charAt()：用于返回指定索引位置的字符。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#split-%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%B0%86%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E6%88%90%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B9%B6%E5%B0%86%E7%BB%93%E6%9E%9C%E4%BD%9C%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84%E8%BF%94%E5%9B%9E%E3%80%82"><span class="toc-text">split()：用于将一个字符串分割成子字符串并将结果作为字符串数组返回。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toUpperCase-%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%A4%A7%E5%86%99%E3%80%82"><span class="toc-text">toUpperCase()：用于将字符串转换为大写。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toLowerCase-%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B0%8F%E5%86%99%E3%80%82"><span class="toc-text">toLowerCase()：用于将字符串转换为小写。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slice-%EF%BC%9A%E7%94%A8%E4%BA%8E%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%89%87%E6%AE%B5%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%82"><span class="toc-text">slice()：用于提取字符串的片段，并返回一个新的字符串。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#substring-%EF%BC%9A%E7%B1%BB%E4%BC%BC%E4%BA%8E-slice-%EF%BC%8C%E4%BD%86%E4%B8%8D%E6%8E%A5%E5%8F%97%E8%B4%9F%E7%9A%84%E7%B4%A2%E5%BC%95%E3%80%82"><span class="toc-text">substring()：类似于 slice()，但不接受负的索引。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#replace-%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9B%BF%E6%8D%A2%E6%8C%87%E5%AE%9A%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%82"><span class="toc-text">replace()：用于在字符串中替换指定子字符串。</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%85%83%E7%B4%A0%E5%88%86%E7%B1%BB"><span class="toc-text">一 元素分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0-Block-level-elements-%EF%BC%9A"><span class="toc-text">1 块级元素 (Block-level elements)：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0-Inline-elements-%EF%BC%9A"><span class="toc-text">2 行内元素 (Inline elements)：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%86%85%E8%81%94%E5%9D%97%E5%85%83%E7%B4%A0-Inline-block-elements-%EF%BC%9A"><span class="toc-text">3 内联块元素 (Inline-block elements)：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E9%9A%8F%E7%AC%94"><span class="toc-text">二 随笔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-HTML5-Web-%E5%AD%98%E5%82%A8"><span class="toc-text">三 HTML5 Web 存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-localStorage-%E7%94%A8%E4%BA%8E%E9%95%BF%E4%B9%85%E4%BF%9D%E5%AD%98%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%BF%9D%E5%AD%98%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B2%A1%E6%9C%89%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%89%8B%E5%8A%A8%E5%8E%BB%E9%99%A4"><span class="toc-text">1 localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-sessionStorage-%E7%94%A8%E4%BA%8E%E4%B8%B4%E6%97%B6%E4%BF%9D%E5%AD%98%E5%90%8C%E4%B8%80%E7%AA%97%E5%8F%A3-%E6%88%96%E6%A0%87%E7%AD%BE%E9%A1%B5-%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%9C%A8%E5%85%B3%E9%97%AD%E7%AA%97%E5%8F%A3%E6%88%96%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E5%90%8E%E5%B0%86%E4%BC%9A%E5%88%A0%E9%99%A4%E8%BF%99%E4%BA%9B%E6%95%B0%E6%8D%AE%E3%80%82"><span class="toc-text">2 sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BC%93%E5%AD%98"><span class="toc-text">四 应用程序缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%9B%B4%E6%96%B0%E9%A1%B5%E9%9D%A2-%EF%BC%88%E7%9B%B4%E6%8E%A5%E6%9B%B4%E6%96%B0%E8%B7%AF%E7%94%B1%EF%BC%89"><span class="toc-text">五 更新页面 （直接更新路由）</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -348,14 +348,72 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="concat-：用于连接两个或多个字符串，并返回新的字符串。"><a href="#concat-：用于连接两个或多个字符串，并返回新的字符串。" class="headerlink" title="concat()：用于连接两个或多个字符串，并返回新的字符串。"></a>concat()：用于连接两个或多个字符串，并返回新的字符串。</h2><p>let str1 &#x3D; “Hello”;<br>let str2 &#x3D; “World”;<br>let newStr &#x3D; str1.concat(“”, str2);<br>console.log(newStr); ##  输出：Hello World</p>
-<h2 id="includes-：用于判断一个字符串中是否包含指定的子字符串，返回-true-或-false。"><a href="#includes-：用于判断一个字符串中是否包含指定的子字符串，返回-true-或-false。" class="headerlink" title="includes()：用于判断一个字符串中是否包含指定的子字符串，返回 true 或 false。"></a>includes()：用于判断一个字符串中是否包含指定的子字符串，返回 true 或 false。</h2><p>let str &#x3D; “Hello, World!”;<br>let isIncludes &#x3D; str.includes(“World”);<br>console.log(isIncludes); ##  输出：true</p>
-<h2 id="indexOf-：用于返回一个字符串在另一个字符串中第一次出现的位置，如果没有找到，则返回-1。"><a href="#indexOf-：用于返回一个字符串在另一个字符串中第一次出现的位置，如果没有找到，则返回-1。" class="headerlink" title="indexOf()：用于返回一个字符串在另一个字符串中第一次出现的位置，如果没有找到，则返回 - 1。"></a>indexOf()：用于返回一个字符串在另一个字符串中第一次出现的位置，如果没有找到，则返回 - 1。</h2><p>let str4 &#x3D; “Hello, World!”;<br>let index &#x3D; str4.indexOf(“World”);<br>console.log(index); ##  输出：7</p>
-<h2 id="charAt-：用于返回指定索引位置的字符。"><a href="#charAt-：用于返回指定索引位置的字符。" class="headerlink" title="charAt()：用于返回指定索引位置的字符。"></a>charAt()：用于返回指定索引位置的字符。</h2><p>let str5 &#x3D; “Hello, World!”;<br>let char &#x3D; str5.charAt(1);<br>console.log(char); ##  输出：e</p>
-<h2 id="split-：用于将一个字符串分割成子字符串并将结果作为字符串数组返回。"><a href="#split-：用于将一个字符串分割成子字符串并将结果作为字符串数组返回。" class="headerlink" title="split()：用于将一个字符串分割成子字符串并将结果作为字符串数组返回。"></a>split()：用于将一个字符串分割成子字符串并将结果作为字符串数组返回。</h2><p>let str6 &#x3D; “apple,banana,orange”;<br>let arr &#x3D; str6.split(“,”);## 以“”内部的为分节符<br>console.log(arr); ##  输出：[“apple”, “banana”, “orange”]</p>
-<h2 id="toUpperCase-：用于将字符串转换为大写。"><a href="#toUpperCase-：用于将字符串转换为大写。" class="headerlink" title="toUpperCase()：用于将字符串转换为大写。"></a>toUpperCase()：用于将字符串转换为大写。</h2><h2 id="toLowerCase-：用于将字符串转换为小写。"><a href="#toLowerCase-：用于将字符串转换为小写。" class="headerlink" title="toLowerCase()：用于将字符串转换为小写。"></a>toLowerCase()：用于将字符串转换为小写。</h2><p>let str7 &#x3D; “Hello, World!”;<br>let upperCaseStr &#x3D; str7.toUpperCase();<br>let lowerCaseStr &#x3D; str7.toLowerCase();<br>console.log(upperCaseStr); ##  输出：HELLO, WORLD!<br>console.log(lowerCaseStr); ##  输出：hello, world!</p>
-<h2 id="slice-：用于提取字符串的片段，并返回一个新的字符串。"><a href="#slice-：用于提取字符串的片段，并返回一个新的字符串。" class="headerlink" title="slice()：用于提取字符串的片段，并返回一个新的字符串。"></a>slice()：用于提取字符串的片段，并返回一个新的字符串。</h2><h2 id="substring-：类似于-slice-，但不接受负的索引。"><a href="#substring-：类似于-slice-，但不接受负的索引。" class="headerlink" title="substring()：类似于 slice()，但不接受负的索引。"></a>substring()：类似于 slice()，但不接受负的索引。</h2><p>let str8 &#x3D; “Hello,World!”;<br>let subStr &#x3D; str8.slice(6);## 从（）里这一位开始提取<br>console.log(subStr); ##  输出：World!</p>
-<h2 id="replace-：用于在字符串中替换指定子字符串。"><a href="#replace-：用于在字符串中替换指定子字符串。" class="headerlink" title="replace()：用于在字符串中替换指定子字符串。"></a>replace()：用于在字符串中替换指定子字符串。</h2><p>let str9&#x3D; “Hello, World!”;<br>let newStr1 &#x3D; str9.replace(“World”, “JavaScript”);<br>console.log(newStr1); ##  输出：Hello, JavaScript!</p>
+        <h2 id="一-元素分类"><a href="#一-元素分类" class="headerlink" title="一 元素分类"></a>一 元素分类</h2><pre><code>块级元素 行内元素（内联元素） 内联块元素
+</code></pre>
+<h3 id="1-块级元素-Block-level-elements-："><a href="#1-块级元素-Block-level-elements-：" class="headerlink" title="1 块级元素 (Block-level elements)："></a>1 块级元素 (Block-level elements)：</h3><pre><code>    一个块级元素自己占一行
+1  默认情况下，块级元素会占据其父元素的完整宽度（从左到右），并在其前后形成“断行”（即自动换行）。
+2  常见的块级元素包括 &lt;@@div&gt;、&lt;@@p&gt;、&lt;@@h1&gt;-&lt;@@h6&gt;、&lt;@@ul&gt;、&lt;@@ol&gt;、&lt;@@li&gt; 等。
+3  块级元素可以包含其他块级元素或行内元素。
+4  可以设置宽度和高度。 
+&lt;@@div&gt;111&lt;@@/div&gt;
+&lt;@@p&gt;222&lt;@@/p&gt;
+&lt;@@h1&gt;333&lt;@@/h1&gt;
+</code></pre>
+<h3 id="2-行内元素-Inline-elements-："><a href="#2-行内元素-Inline-elements-：" class="headerlink" title="2 行内元素 (Inline elements)："></a>2 行内元素 (Inline elements)：</h3><pre><code>    多个行内元素可以在一行显示 直到超出父容器宽度才换行 
+1 行内元素不会独占一行，其宽度只与内容的宽度相关。
+2 常见的行内元素包括 &lt;@@span&gt;、&lt;@@a&gt;、&lt;@@img&gt;、&lt;@@strong&gt;、&lt;@@em&gt; 等。
+3 行内元素主要用于不打断段落中的文本流。
+4 通常不可以设置宽度和高度，其大小直接受内容影响。
+&lt;@@span&gt;444&lt;@@/span&gt;
+&lt;@@a href=&quot;&quot;&gt;55&lt;@@/a&gt;
+&lt;@@img src=&quot;../../assets//充值记录.png&quot; alt=&quot;&quot; width=&quot;40px&quot; height=&quot;30px&quot;&gt;
+</code></pre>
+<h3 id="3-内联块元素-Inline-block-elements-："><a href="#3-内联块元素-Inline-block-elements-：" class="headerlink" title="3 内联块元素 (Inline-block elements)："></a>3 内联块元素 (Inline-block elements)：</h3><pre><code>    使得块级元素不换行 行内元素可以设置高度宽度
+1 是一种特殊类型，结合了行内元素和块级元素的特性。
+2 行为类似于行内元素，即不会断行，但可以设置宽度和高度，类似块级元素。
+3 例如，通过 CSS 将元素的 display 属性设置为 inline-block 可以使其表现为内联块元素。 --&gt;
+
+&lt;@@div class=&quot;inline-block&quot;&gt;Inline-block Element&lt;@@/div&gt;
+&lt;@@div class=&quot;inline-block&quot;&gt;Inline-block Element&lt;@@/div&gt;
+&lt;@@span class=&quot;inline-block&quot;&gt;Another Inline-block Element&lt;@@/span&gt;
+</code></pre>
+<h2 id="二-随笔"><a href="#二-随笔" class="headerlink" title="二 随笔"></a>二 随笔</h2><p>p {margin:0; padding:0;} p标签默认有边距 这样可以去除</p>
+<h2 id="三-HTML5-Web-存储"><a href="#三-HTML5-Web-存储" class="headerlink" title="三 HTML5 Web 存储"></a>三 HTML5 Web 存储</h2><h3 id="1-localStorage-用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除"><a href="#1-localStorage-用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除" class="headerlink" title="1 localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除"></a>1 localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除</h3><pre><code>（在本网站一直存在 本网站的其他小页面里也是这个值 ）
+    方法 1 代码清除 localStorage.clear(); 
+    方法 2 浏览器 F12 应用 本地存储删除 
+存储
+localStorage.setItem(&quot;sitename&quot;, &quot;菜鸟教程&quot;);
+查找
+document.getElementById(&quot;result&quot;).innerHTML = &quot;网站名：&quot; +  localStorage.getItem(&quot;sitename&quot;);
+清除
+localStorage.clear()
+</code></pre>
+<h3 id="2-sessionStorage-用于临时保存同一窗口-或标签页-的数据，在关闭窗口或标签页之后将会删除这些数据。"><a href="#2-sessionStorage-用于临时保存同一窗口-或标签页-的数据，在关闭窗口或标签页之后将会删除这些数据。" class="headerlink" title="2 sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。"></a>2 sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</h3><pre><code>（只在当前这个小页面存在 当页面关闭时自动删除 不会影响其他页面 ）
+    要向 sessionStorage 中添加数据，可以使用 setItem 方法。此方法接受两个参数：一个是键（key），另一个是值（value）。值必须是字符串。如果需要存储非字符串数据（如对象或数组），可以先将其转换为 JSON 字符串。
+    方法 1 代码清除 sessionStorage.clear(); 
+    方法 2 浏览器 F12 应用 会话存储删除 
+存储
+sessionStorage.setItem(&#39;userInfo&#39;, JSON.stringify(&#123; name: &#39;John&#39;, age: 30 &#125;));
+查找
+let data = sessionStorage.getItem(&#39;key&#39;); // 返回 &#39;value&#39;
+let userInfo = JSON.parse(sessionStorage.getItem(&#39;userInfo&#39;)); // 解析并返回对象
+移除数据
+sessionStorage.removeItem(&#39;key&#39;); // 移除 &#39;key&#39; 对应的数据 
+清空所有数据
+sessionStorage.clear(); // 清空所有 sessionStorage 数据
+</code></pre>
+<h2 id="四-应用程序缓存"><a href="#四-应用程序缓存" class="headerlink" title="四 应用程序缓存"></a>四 应用程序缓存</h2><p>HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。<br>应用程序缓存为应用带来三个优势：<br>1 离线浏览 - 用户可在应用离线时使用它们<br>2 速度 - 已缓存资源加载得更快<br>3 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。</p>
+<h2 id="五-更新页面-（直接更新路由）"><a href="#五-更新页面-（直接更新路由）" class="headerlink" title="五 更新页面 （直接更新路由）"></a>五 更新页面 （直接更新路由）</h2><p>在app.vue中 </p>
+<pre><code>let cc = ref(true);
+setInterval(() =&gt; &#123;
+cc.value = false;
+setTimeout(() =&gt; &#123;
+    cc.value = true;
+&#125;, 0);
+&#125;, 360000);
+
+&lt;@div v-if=&quot;cc&quot;&gt;&lt;@router-view&gt;&lt;@/router-view&gt;&lt;@/div&gt;
+</code></pre>
 
       
        

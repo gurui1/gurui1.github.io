@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>konwledge | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="konwledge | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="一 详解TCP 详解TCP 二 WebSocket WebSocket 三 HTTP协议 WebSocket 四 详解HTTP协议和HTTPS协议 详解HTTP协议和HTTPS协议 五  cookie 类似于localstore和sessionstore  只是存储的方式不同 都是浏览器自带的  Cookie是一种在客户端存储数据的小型文本文件，由服务器发送给浏览器，并保存在用户的计算机上。它通常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="konwledge">
+<meta property="og:url" content="http://example.com/2024/04/15/%E5%89%8D%E7%AB%AF/knowledge/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一 详解TCP 详解TCP 二 WebSocket WebSocket 三 HTTP协议 WebSocket 四 详解HTTP协议和HTTPS协议 详解HTTP协议和HTTPS协议 五  cookie 类似于localstore和sessionstore  只是存储的方式不同 都是浏览器自带的  Cookie是一种在客户端存储数据的小型文本文件，由服务器发送给浏览器，并保存在用户的计算机上。它通常">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/llq.jpg">
+<meta property="article:published_time" content="2024-04-15T09:14:26.440Z">
+<meta property="article:modified_time" content="2024-04-18T12:58:49.560Z">
+<meta property="article:author" content="顾瑞">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/llq.jpg">
+
+
+<link rel="icon" href="/img/bb.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/bb.jpg"/>
+</a>
+<div class="author">
+    <span>顾瑞</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(10)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="前端">
+            
+            前端
+            <small>(7)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="css">
+            
+            css
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="10">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/04/15/%E5%89%8D%E7%AB%AF/knowledge/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="konwledge">konwledge</span>
+            <span class="post-date" title="2024-04-15 17:14:26">2024/04/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/04/14/%E5%89%8D%E7%AB%AF/html/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html">html</span>
+            <span class="post-date" title="2024-04-14 15:43:15">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/04/13/%E5%89%8D%E7%AB%AF/pinia/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="pinia">pinia</span>
+            <span class="post-date" title="2024-04-13 14:21:19">2024/04/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 css "
+           href="/2024/04/08/%E5%89%8D%E7%AB%AF/css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="css">css</span>
+            <span class="post-date" title="2024-04-08 20:37:12">2024/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/08/%E5%89%8D%E7%AB%AF/vue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue">vue</span>
+            <span class="post-date" title="2024-04-08 18:47:15">2024/04/08</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/04/01/%E5%89%8D%E7%AB%AF/%E5%88%9B%E5%BB%BAvue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="创建vue3">创建vue3</span>
+            <span class="post-date" title="2024-04-01 16:17:59">2024/04/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/19/moban/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="模版">模版</span>
+            <span class="post-date" title="2024-03-19 17:29:26">2024/03/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/03/19/%E5%89%8D%E7%AB%AF/Json/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Json">Json</span>
+            <span class="post-date" title="2024-03-19 17:28:24">2024/03/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/03/17/%E5%89%8D%E7%AB%AF/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数组方法">数组方法</span>
+            <span class="post-date" title="2024-03-17 17:02:16">2024/03/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 前端 "
+           href="/2024/03/17/%E5%89%8D%E7%AB%AF/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="字符串方法">字符串方法</span>
+            <span class="post-date" title="2024-03-17 16:04:13">2024/03/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-前端/knowledge" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">konwledge</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-04-18 20:58:49'>2024-04-15 17:14</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E8%AF%A6%E8%A7%A3TCP"><span class="toc-text">一 详解TCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-WebSocket"><span class="toc-text">二 WebSocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">三 HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%AF%A6%E8%A7%A3HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE"><span class="toc-text">四 详解HTTP协议和HTTPS协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-cookie"><span class="toc-text">五  cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95%E6%98%AF%E5%90%8E%E7%AB%AF%E7%9B%B4%E6%8E%A5%E5%B0%86%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8%E5%9C%A8-Cookie-%E4%B8%AD%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%A8%E6%AF%8F%E6%AC%A1%E8%AF%B7%E6%B1%82%E6%97%B6%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%B0%86-Cookie-%E6%90%BA%E5%B8%A6%E5%9C%A8%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%AD%E5%8F%91%E9%80%81%E7%BB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E8%BF%99%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%80%9A%E5%B8%B8%E7%94%A8%E4%BA%8E%E4%BC%A0%E7%BB%9F%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F-%EF%BC%88%E5%90%8E%E7%AB%AF%E8%AE%BE%E7%BD%AE-%E5%89%8D%E7%AB%AF%E4%B8%8D%E7%94%A8%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-text">1 第一种方法是后端直接将身份验证信息存储在 Cookie 中，浏览器在每次请求时会自动将 Cookie 携带在请求头中发送给服务器，这种方式通常用于传统的会话管理方式 （后端设置 前端不用处理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95%E6%98%AF%E5%90%8E%E7%AB%AF%E5%B0%86%E4%B8%80%E4%B8%AA%E4%BB%A4%E7%89%8C%EF%BC%88token%EF%BC%89%E5%8F%91%E9%80%81%E7%BB%99%E5%89%8D%E7%AB%AF%EF%BC%8C%E5%89%8D%E7%AB%AF%E9%80%9A%E8%BF%87%E6%89%8B%E5%8A%A8%E5%B0%86%E5%85%B6%E5%AD%98%E5%82%A8%E5%9C%A8%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%AD%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%AF%8F%E6%AC%A1%E8%AF%B7%E6%B1%82%E6%97%B6%E6%90%BA%E5%B8%A6%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF%EF%BC%8C%E8%BF%99%E7%A7%8D%E6%96%B9%E5%BC%8F%E9%80%9A%E5%B8%B8%E7%94%A8%E4%BA%8E%E6%97%A0%E7%8A%B6%E6%80%81%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81"><span class="toc-text">2 第二种方法是后端将一个令牌（token）发送给前端，前端通过手动将其存储在请求头中，实现每次请求时携带身份验证信息，这种方式通常用于无状态的身份验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E8%AF%A6%E8%A7%A3ajax%E3%80%81fetch%E3%80%81axios%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">六 详解ajax、fetch、axios的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ajax%EF%BC%88Asynchronous-JavaScript-and-XML%EF%BC%89%E6%98%AF%E4%B8%80%E7%A7%8D%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E5%BF%AB%E9%80%9F%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5%E7%9A%84%E6%8A%80%E6%9C%AF%E3%80%82%E5%AE%83%E5%88%A9%E7%94%A8-JavaScript-%E5%8F%91%E9%80%81%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E8%A1%8C%E9%80%9A%E4%BF%A1%EF%BC%8C%E4%BB%8E%E8%80%8C%E6%9B%B4%E6%96%B0%E9%83%A8%E5%88%86%E9%A1%B5%E9%9D%A2%E5%86%85%E5%AE%B9%EF%BC%8C%E8%80%8C%E6%97%A0%E9%9C%80%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E6%95%B4%E4%B8%AA%E9%A1%B5%E9%9D%A2%E3%80%82"><span class="toc-text">1 Ajax（Asynchronous JavaScript and XML）是一种用于创建快速动态网页的技术。它利用 JavaScript 发送异步请求与服务器进行通信，从而更新部分页面内容，而无需重新加载整个页面。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Axios-%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E-Promise-%E7%9A%84-HTTP-%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C-Node-js-%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E7%A7%8D%E7%AE%80%E6%B4%81%E3%80%81%E6%98%93%E7%94%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E5%8F%91%E9%80%81-HTTP-%E8%AF%B7%E6%B1%82%EF%BC%8C%E5%B9%B6%E5%A4%84%E7%90%86%E5%93%8D%E5%BA%94%E3%80%82"><span class="toc-text">2  Axios 是一个基于 Promise 的 HTTP 客户端，可以在浏览器和 Node.js 环境中使用，提供了一种简洁、易用的方式来发送 HTTP 请求，并处理响应。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%88%E6%B6%88%E6%81%AF%E5%BE%AA%E7%8E%AF%EF%BC%89"><span class="toc-text">七 事件循环（消息循环）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E7%A8%8B%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E9%9C%80%E8%A6%81%E6%9C%89%E4%BB%96%E8%87%AA%E5%B7%B1%E4%B8%93%E5%B1%9E%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4-%E5%8F%AF%E4%BB%A5%E6%8A%8A%E8%BF%99%E5%9D%97%E7%A9%BA%E9%97%B4%E7%AE%80%E5%8D%95%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%BA%E8%BF%9B%E7%A8%8B"><span class="toc-text">1 进程：程序运行需要有他自己专属的内存空间 可以把这块空间简单的理解为进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BA%BF%E7%A8%8B%EF%BC%9A%E5%B0%B1%E6%98%AF%E7%A8%8B%E5%BA%8F%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C"><span class="toc-text">2 线程：就是程序如何运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%8F%E8%A7%88%E5%99%A8-%EF%BC%9A%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">3 浏览器 ：是一个多进程多线程的应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B8%B2%E6%9F%93%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-%E6%B6%88%E6%81%AF%E5%BE%AA%E7%8E%AF"><span class="toc-text">4 渲染主线程如何工作 事件循环(消息循环)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-%E9%98%90%E8%BF%B0%E2%80%94%E4%B8%8BJS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">面试题:阐述—下JS的事件循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3JS-%E7%9A%84%E5%BC%82%E6%AD%A5"><span class="toc-text">5 如何理解JS 的异步?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BB%BB%E5%8A%A1%E6%9C%89%E4%BC%98%E5%85%88%E7%BA%A7%E5%90%97"><span class="toc-text">6  任务有优先级吗?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%86%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%98%AF%E6%9C%89%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84"><span class="toc-text">但消息队列是有优先级的</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-JS%E4%B8%AD%E7%9A%84%E8%AE%A1%E6%97%B6%E5%99%A8%E8%83%BD%E5%81%9A%E5%88%B0%E7%B2%BE%E5%87%86%E8%AE%A1%E6%97%B6%E5%90%97-%E4%B8%BA%E4%BB%80%E4%B9%88-I"><span class="toc-text">7  JS中的计时器能做到精准计时吗?为什么?I</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86"><span class="toc-text">八 浏览器渲染原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86"><span class="toc-text">1 深入理解浏览器渲染原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84"><span class="toc-text">2浏览器是如何渲染页面的?</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-详解TCP"><a href="#一-详解TCP" class="headerlink" title="一 详解TCP"></a>一 详解TCP</h2><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/Joker_ZJN/article/details/131473156">详解TCP</a></p>
+<h2 id="二-WebSocket"><a href="#二-WebSocket" class="headerlink" title="二 WebSocket"></a>二 WebSocket</h2><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_54773998/article/details/123863493">WebSocket</a></p>
+<h2 id="三-HTTP协议"><a href="#三-HTTP协议" class="headerlink" title="三 HTTP协议"></a>三 HTTP协议</h2><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_54773998/article/details/122653163?spm=1001.2014.3001.5502">WebSocket</a></p>
+<h2 id="四-详解HTTP协议和HTTPS协议"><a href="#四-详解HTTP协议和HTTPS协议" class="headerlink" title="四 详解HTTP协议和HTTPS协议"></a>四 详解HTTP协议和HTTPS协议</h2><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_64580912/article/details/131224709?ops_request_misc=&request_id=&biz_id=102&utm_term=https&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-8-131224709.nonecase&spm=1018.2226.3001.4187">详解HTTP协议和HTTPS协议</a></p>
+<h2 id="五-cookie"><a href="#五-cookie" class="headerlink" title="五  cookie"></a>五  cookie</h2><p> 类似于localstore和sessionstore  只是存储的方式不同 都是浏览器自带的</p>
+<p> Cookie是一种在客户端存储数据的小型文本文件，由服务器发送给浏览器，并保存在用户的计算机上。它通常用于跟踪和识别用户，以及在用户访问网站时存储一些用户偏好和状态信息。<br>Cookie主要用于以下几个方面：<br> 1 会话管理： 用于在客户端和服务器之间跟踪会话信息，以便在用户访问网站时保持登录状态或跟踪用户的活动状态。这种类型的Cookie通常被称为会话Cookie，它在用户关闭浏览器时会被删除。<br>2 个性化： 可以用于存储用户的偏好设置，如语言偏好、主题选择等，以便在用户再次访问网站时提供个性化的体验。<br>3 广告定位： 在广告中使用Cookie跟踪用户的浏览行为，以便提供与用户兴趣相关的广告内容。<br>4 购物车管理： 在电子商务网站中，Cookie可用于跟踪用户的购物车内容，以便在用户添加商品到购物车后保持商品的状态。<br>5 跟踪分析： 用于分析用户访问网站的行为，如跟踪用户访问的页面、停留时间等，以便网站优化和改进用户体验。</p>
+<h3 id="1-第一种方法是后端直接将身份验证信息存储在-Cookie-中，浏览器在每次请求时会自动将-Cookie-携带在请求头中发送给服务器，这种方式通常用于传统的会话管理方式-（后端设置-前端不用处理）"><a href="#1-第一种方法是后端直接将身份验证信息存储在-Cookie-中，浏览器在每次请求时会自动将-Cookie-携带在请求头中发送给服务器，这种方式通常用于传统的会话管理方式-（后端设置-前端不用处理）" class="headerlink" title="1 第一种方法是后端直接将身份验证信息存储在 Cookie 中，浏览器在每次请求时会自动将 Cookie 携带在请求头中发送给服务器，这种方式通常用于传统的会话管理方式 （后端设置 前端不用处理）"></a>1 第一种方法是后端直接将身份验证信息存储在 Cookie 中，浏览器在每次请求时会自动将 Cookie 携带在请求头中发送给服务器，这种方式通常用于传统的会话管理方式 （后端设置 前端不用处理）</h3><h3 id="2-第二种方法是后端将一个令牌（token）发送给前端，前端通过手动将其存储在请求头中，实现每次请求时携带身份验证信息，这种方式通常用于无状态的身份验证"><a href="#2-第二种方法是后端将一个令牌（token）发送给前端，前端通过手动将其存储在请求头中，实现每次请求时携带身份验证信息，这种方式通常用于无状态的身份验证" class="headerlink" title="2 第二种方法是后端将一个令牌（token）发送给前端，前端通过手动将其存储在请求头中，实现每次请求时携带身份验证信息，这种方式通常用于无状态的身份验证"></a>2 第二种方法是后端将一个令牌（token）发送给前端，前端通过手动将其存储在请求头中，实现每次请求时携带身份验证信息，这种方式通常用于无状态的身份验证</h3><p><code>import axios from &quot;axios&quot;;</code><br><code>import &#123; ElMessage &#125; from &quot;element-plus&quot;;</code><br><code>import Cookie from &#39;js-cookie&#39;</code><br><code>// import router from &quot;../router/index&quot;;</code><br><code>// 创建axios实例</code><br><code>// axios 二次封装</code><br><code>const request = axios.create(&#123;</code><br>  <code>baseURL: &quot;http://123.207.5.119:9093/&quot;,</code><br>  <code>// baseURL: &quot;/api&quot;, // timeout: 80000, // 请求超时时间(毫秒) // withCredentials: true,// 异步请求携带cookie // headers: &#123; // 设置后端需要的传参类型 // &#39;Content-Type&#39;: &#39;application/json&#39;, // &#39;token&#39;: x-auth-token&#39;,//一开始就要token // &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;, // &#125;,</code></p>
+<p><code>&#125;);</code></p>
+<p><code>// request（请求）拦截器</code><br><code>request.interceptors.request.use(</code><br>  <code>(config) =&gt; &#123;</code><br>​    <code>// 如果你要去localStor获取token,(如果你有)</code><br>​    <code>const token = localStorage.getItem(&quot;token&quot;) || &quot;&quot;;</code><br>​    <code>// 登录的时候存储</code><br>​    <code>// Cookie.set(&quot;token&quot;, res.data.data.token);</code><br>​    <code>//    let token = Cookie.get(&#39;token&#39;)</code><br>​    <code>// 定义两个请求头</code><br>​    <code>config.headers[&quot;token&quot;] = token;</code><br>​    <code>config.headers[&quot;Content-Type&quot;] = &quot;application/json;charset=UTF-8&quot;;</code><br>​    <code>return config;</code><br>  <code>&#125;,</code></p>
+<p>  <code>(error) =&gt; &#123;</code><br>​    <code>// 对请求错误做些什么</code><br>​    <code>return Promise.reject(error);</code><br>  <code>&#125;</code></p>
+<p><code>);</code></p>
+<p><code>// response（响应） 拦截器</code><br><code>request.interceptors.response.use(</code><br>  <code>(response) =&gt; &#123;</code><br>​    <code>// token失效，重新登录</code><br>​    <code>if (response.data.code === 401) &#123;</code><br>​      <code>//  重新登录</code><br>​      <code>ElMessage.error(&quot;token失效&quot;);</code><br>​      <code>localStorage.clear();</code><br>​      <code>//  location.href = &quot;/&quot;;</code><br>​      <code>//  router.push(&quot;/login&quot;);</code><br>​    <code>&#125; // 对响应数据做点什么</code><br>​    <code>return response;</code><br>  <code>&#125;,</code><br>  <code>(error) =&gt; &#123;</code><br>​    <code>// 对响应错误做点什么</code><br>​    <code>return Promise.reject(error);</code><br>  <code>&#125;</code><br><code>);</code><br><code>export default request;</code></p>
+<h2 id="六-详解ajax、fetch、axios的区别"><a href="#六-详解ajax、fetch、axios的区别" class="headerlink" title="六 详解ajax、fetch、axios的区别"></a>六 详解ajax、fetch、axios的区别</h2><p>Ajax 和 axios 都是用于在客户端和服务器之间进行 HTTP 通信的工具</p>
+<h3 id="1-Ajax（Asynchronous-JavaScript-and-XML）是一种用于创建快速动态网页的技术。它利用-JavaScript-发送异步请求与服务器进行通信，从而更新部分页面内容，而无需重新加载整个页面。"><a href="#1-Ajax（Asynchronous-JavaScript-and-XML）是一种用于创建快速动态网页的技术。它利用-JavaScript-发送异步请求与服务器进行通信，从而更新部分页面内容，而无需重新加载整个页面。" class="headerlink" title="1 Ajax（Asynchronous JavaScript and XML）是一种用于创建快速动态网页的技术。它利用 JavaScript 发送异步请求与服务器进行通信，从而更新部分页面内容，而无需重新加载整个页面。"></a>1 Ajax（Asynchronous JavaScript and XML）是一种用于创建快速动态网页的技术。它利用 JavaScript 发送异步请求与服务器进行通信，从而更新部分页面内容，而无需重新加载整个页面。</h3><p>1.1特点：<br>使用原生的 JavaScript 或者第三方库如 jQuery 实现。<br>主要用于发送异步请求和处理响应，更新页面内容。</p>
+<p>1.2优点：<br>能够在不重新加载整个页面的情况下更新部分页面内容，提升用户体验。<br>可以根据需要选择性地使用，灵活性较高。</p>
+<p>1.3缺点：<br>需要手动处理 XMLHttpRequest 对象或者使用第三方库，代码相对较为繁琐。<br>功能相对较为简单，不提供诸如拦截器、请求取消等高级功能。</p>
+<h3 id="2-Axios-是一个基于-Promise-的-HTTP-客户端，可以在浏览器和-Node-js-环境中使用，提供了一种简洁、易用的方式来发送-HTTP-请求，并处理响应。"><a href="#2-Axios-是一个基于-Promise-的-HTTP-客户端，可以在浏览器和-Node-js-环境中使用，提供了一种简洁、易用的方式来发送-HTTP-请求，并处理响应。" class="headerlink" title="2  Axios 是一个基于 Promise 的 HTTP 客户端，可以在浏览器和 Node.js 环境中使用，提供了一种简洁、易用的方式来发送 HTTP 请求，并处理响应。"></a>2  Axios 是一个基于 Promise 的 HTTP 客户端，可以在浏览器和 Node.js 环境中使用，提供了一种简洁、易用的方式来发送 HTTP 请求，并处理响应。</h3><p>2.1特点：<br>使用 Promise 封装，支持异步操作。<br>提供了简洁易用的 API，支持诸如拦截器、请求取消等高级功能。<br>2.2优点：<br>提供了简洁易用的 API，使得发送请求和处理响应更加方便。<br>支持诸如拦截器、请求取消、全局配置等高级功能，提高了对 HTTP 请求的管理灵活性。<br>2.3缺点：<br>相对于原生的 XMLHttpRequest 对象或者 Fetch API，axios 是一个额外的库，可能增加项目的体积。<br>对于简单的 HTTP 请求，使用 axios 可能会显得过于臃肿。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Senora/article/details/122220983?ops_request_misc=&request_id=&biz_id=102&utm_term=Ajax%20%E5%92%8Caxios%E5%88%86%E5%88%AB%E6%98%AF%E5%95%A5%20%E5%8F%8A%E5%8C%BA%E5%88%AB%20%E8%81%94%E7%B3%BB%20%E8%AF%A6%E8%A7%A3&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-4-122220983.142%5Ev100%5Epc_search_result_base1&spm=1018.2226.3001.4187">ajax和axios区别及优缺点</a></p>
+<h2 id="七-事件循环（消息循环）"><a href="#七-事件循环（消息循环）" class="headerlink" title="七 事件循环（消息循环）"></a>七 事件循环（消息循环）</h2><h3 id="1-进程：程序运行需要有他自己专属的内存空间-可以把这块空间简单的理解为进程"><a href="#1-进程：程序运行需要有他自己专属的内存空间-可以把这块空间简单的理解为进程" class="headerlink" title="1 进程：程序运行需要有他自己专属的内存空间 可以把这块空间简单的理解为进程"></a>1 进程：程序运行需要有他自己专属的内存空间 可以把这块空间简单的理解为进程</h3><p>每个应用至少有一个进程，进程之间相互独立 即使要通信 也需要双方同意 </p>
+<h3 id="2-线程：就是程序如何运行"><a href="#2-线程：就是程序如何运行" class="headerlink" title="2 线程：就是程序如何运行"></a>2 线程：就是程序如何运行</h3><p>一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线程。<br>如果程序需要同时执行多块代码，主线程就会启动更多的线程来执行代码，所以一个进程中可以包含多个线程。</p>
+<h3 id="3-浏览器-：是一个多进程多线程的应用程序"><a href="#3-浏览器-：是一个多进程多线程的应用程序" class="headerlink" title="3 浏览器 ：是一个多进程多线程的应用程序"></a>3 浏览器 ：是一个多进程多线程的应用程序</h3><p>其中，最主要的进程有:<br>1．浏览器进程<br>主要负责界面显示、用户交互、子进程管理（最开始只有浏览器进程 它会立刻开始网络进程等）等。浏览器进程内部会启动多个线程处理不同的任务。<br>2．网络进程<br>负责加载网络资源。网络进程内部会启动多个线程来处理不同的网络任务。<br>3．渲染进程(本节课重点讲解的进程)<br>渲染进程启动后，会开启一个渲染主线程，生线程负责执行HTML、CSs、JS 代码。<br>默认情况下，浏览器会为每个标签页开启一个新的渲染进程，以保证不同的标签页之间不棺互影响</p>
+<h3 id="4-渲染主线程如何工作-事件循环-消息循环"><a href="#4-渲染主线程如何工作-事件循环-消息循环" class="headerlink" title="4 渲染主线程如何工作 事件循环(消息循环)"></a>4 渲染主线程如何工作 事件循环(消息循环)</h3><p>消息队列：任务在里面排队</p>
+<p>1．在最开始的时候,渲染主线程会进入一个无限循环<br>2．每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后进入下一次循<br>环;如果没有，则进入休眠状态。<br>3．其他所有线程（包括其他进程的线程）可以随时向消息队列添加任务。新任务会加到消息队列的末尾。在添加<br>新任务时，如果主线程是休眠状态，则会将其唤醒以继续循环拿取任务<br>这样一来，就可以让每个任务有条不紊的、持续的进行下去了。<br>整个过程,被称之为事件循环(消息循环)</p>
+<h4 id="面试题-阐述—下JS的事件循环"><a href="#面试题-阐述—下JS的事件循环" class="headerlink" title="面试题:阐述—下JS的事件循环"></a>面试题:阐述—下JS的事件循环</h4><p>事件循环又叫做消息循环，是浏览器渲染主线程的工作方式。<br>在Chrome的源码中，它开启一个不会结束的 for循环，每次循环从消息队列中取出第一个任务执行，而其他线程只需要在合适的时候将任务加入到队列末尾即可。<br>过去把消息队列简单分为宏队列和微队列，这种说法目前已无法满足复杂的浏览器环境，取而代之的是一种更加灵活多变的处理方式。<br>根据W3c官方的解释，每个任务有不同的类型，同类型的任务必须在同一个队列，不同的任务可以属于相同的队列。<br>不同任务队列有不同的优先级，在一次事件循环中，由浏览器自行决定取哪一个队列的任务；但浏览器必须有一个微队列，微队列的任务一定具有最高的优先级，必须优先调度执行。</p>
+<h3 id="5-如何理解JS-的异步"><a href="#5-如何理解JS-的异步" class="headerlink" title="5 如何理解JS 的异步?"></a>5 如何理解JS 的异步?</h3><p>使用异步的方式，使渲染主线程永不阻塞</p>
+<p>参考答案:<br>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。而渲染主线程承担着诸多的工作，渲染页面、执行JS都在其中运行。<br>如果使用同步的方式，就极有可能导致主线程产生阻塞，从而导致消息队列中的很多其他任务无法得到执行。这样一来，一方面会导致繁忙的主线程白白的消耗时间，<br>另一方面导致页面无法及时更新，给用户造成卡死现象。<br>所以浏览器采用异步的方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听,主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务,加入到消息队列的末尾排队，等待主线程调度执行。<br>在这种异步模式下，浏览器永不阻塞，从而最大限度的保证了单线程的流畅运行。</p>
+<h3 id="6-任务有优先级吗"><a href="#6-任务有优先级吗" class="headerlink" title="6  任务有优先级吗?"></a>6  任务有优先级吗?</h3><p>任务没有优先级，在消息队列中先进先出</p>
+<h4 id="但消息队列是有优先级的"><a href="#但消息队列是有优先级的" class="headerlink" title="但消息队列是有优先级的"></a>但消息队列是有优先级的</h4><p>根据W3C的最新解释:<br>·每个任务都有一个任务类型，同一个类型的任务必须在一个队列，不同类型的任务可以在相同的队列。<br> 在一次事件循环中，浏览器可以根据实际情况从不同的队列中取出任务执行。<br>·浏览器必须准备好一个微队列，微队列中的任务优先所有其他任务执行</p>
+<p>随着浏览器的复杂度急剧提升，w3C不再使用宏队列的说法</p>
+<p>在目前chrome 的实现中,至少包含了下面的队列<br>·延时队列:用于存放计时器到达后的回调任务，优先级「中」<br>·交互队列:用于存放用户操作后产生的事件处理任务，优先级「高」<br>·微队列:用户存放需要最快执行的任务，优先级「最高J</p>
+<h3 id="7-JS中的计时器能做到精准计时吗-为什么-I"><a href="#7-JS中的计时器能做到精准计时吗-为什么-I" class="headerlink" title="7  JS中的计时器能做到精准计时吗?为什么?I"></a>7  JS中的计时器能做到精准计时吗?为什么?I</h3><p>不行，因为<br>1．计算机硬件没有原子钟,无法做到精确计时<br>2．操作系统的计时函数本身就有少量偏差，由于JS的计时器最终调用的是操作系统的函数，也就携带了这些偏差<br>3．按照W3C的标准，浏览器实现计时器时，如果嵌套层级超过5层，则会带有4毫秒的最少时间，这样<br>在计时时间少于4毫秒时又带来了偏差<br>4．受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，因此又带来了偏差</p>
+<h2 id="八-浏览器渲染原理"><a href="#八-浏览器渲染原理" class="headerlink" title="八 浏览器渲染原理"></a>八 浏览器渲染原理</h2><h3 id="1-深入理解浏览器渲染原理"><a href="#1-深入理解浏览器渲染原理" class="headerlink" title="1 深入理解浏览器渲染原理"></a>1 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ZhangYu_010228/article/details/133562371?spm=1001.2014.3001.5502">深入理解浏览器渲染原理</a></h3><h3 id="2浏览器是如何渲染页面的"><a href="#2浏览器是如何渲染页面的" class="headerlink" title="2浏览器是如何渲染页面的?"></a>2浏览器是如何渲染页面的?</h3><p>当浏览器的网络线程收到HTML文档后，会产生一个渲染任务，并将其传递给渲染主线程的消息队列。<br>在事件循环机制的作用下，渲染主线程取出消息队列中的渲染任务，开启渲染流程。<br>整个渲染流程分为多个阶段，分别是:HTML解析、样式计算、布局、分层、绘制、分块、光棚化、画<br>每个阶段都有明确的输入输出，上一个阶段的输出会成为下一个阶段的输入。<br>这样,整个渲染流程就形成了一套组织严密的生产流水线。</p>
+<p>1<br>渲染的第一步是解析HTML。<br>解析过程中遇到CSS 解析CSS，遇到JS 执行JS。为了提高解析效率，浏览器在开始解析前，会启动一个预解析的线程，率先下载 HTML中的外部CSS文件和外部的JS文件。<br>如果主线程解析到link 位置，此时外部的CSS文件还没有下载解析好，主线程不会等待，继续解析后续的HTML。这是因为下载和解析CSS 的工作是在预解析线程中进行的。这就是CSS 不会阻塞HTML解析的根本原因。<br>如果主线程解析到 script 位置，会停止解析HTML，转而等待JS文件下载好，并将全局代码解析执行完成后，才能继续解析HTML。这是因为JS 代码的执行过程可能会修改当前的 DOM树，所以、 DOM树的生成必须暂停。这就是JS会阻塞HTML解析的根本原因。<br>第一步完成后，会得到DO树和CSSOM树，浏览器的默认样式、内部样式、外部样式、行内样式均会包含在csSOM树中。</p>
+<p>2<br>渲染的下一步是样式计算。<br>主线程会遍历得到的DOM树，依次为树中的每个节点计算出它最终的样式，称之为Computed style。<br>在这一过程中，很多预设值会变成绝对值，比如red 会变成 rgb(255,0,0)﹔相对单位会变成绝对单位，比如em会变成px<br>这一步完成后，会得到一棵带有样式的DOM树。<br>在 CSS 中，字体大小可以使用多种单位进行指定。一些常见的字体大小单位包括：</p>
+<p>3<br>接下来是布局，布局完成后会得到布局树。<br>布局阶段会依次遍历DOM树的每一个节点，计算每个节点的几何信感。例如节点的宽高、相对包含块的位置。<br>大部分时候，DOM树和布局树并非―一对应。<br>比如display:none的节点没有几何信息，因此不会生成到布局树;又比如使用了伪元素选择器，虽然DOM树中不存在这些伪元素节点，但它们拥有几何信息，所以会生成到布局树中。还有匿名行盒、匿名块盒等等都会导致DOM树和布局树无法一一对应。</p>
+<p>4<br>下一步是分层<br>主线程会使用一套复杂的策略对整个布局树中进行分层。<br>分层的好处在于，将来某一个层改变后，仅会对该层进行后续处理，从而提升效率。<br>滚动条、堆叠上下文、transform、opacity 等样式都会或多或少的影响分层结果，也可以通过will-change属性更大程度的影响分层结果。</p>
+<p>5<br>渲染主线程的工作到此为止，剩余步骤交给其他线程完成<br>再下一步是绘制<br>主线程会为每个层单独产生绘制指令集，用于描述这一层的内容该如何画出来。</p>
+<p>6<br>完成绘制后，主线程将每个图层的绘制信息提交给合成线程，剩余工作将由合成线程完成。<br>合成线程首先对每个图层进行分块，将其划分为更多的小区域。<br>它会从线程池中拿取多个线程来完成分块工作。</p>
+<p>7<br>分块完成后，进入光栅化阶段。<br>合成线程会将块信息交给GPU进程，以极高的速度完成光棚化。<br>GPU进程会开启多个线程来完成光唉化,孩且优先处理靠近视口区域的块。光棚化的结果，就是一块一块的位图</p>
+<p>8<br>最后一个阶段就是画了<br>合成线程拿到每个层、每个块的位图后，生成一个个「指引 (quad)」信息。指引会标识出每个位图应该画到屏幕的哪个位置，以及会考虑到旋转、缩放等变形。变形发生在合成线程，与渲染主线程无关，这就是transform效率高的本质原因。<br>合成线程会把quad’提交给GPU‘进程，由GPU进程产生系统调用，提交给GPU 硬件，完成最终的屏幕成像。</p>
+<p><img src="/../img/llq.jpg" alt="完整"></p>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 顾瑞
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+    .nav-right nav a.hover > span{
+        color: blue !important;
+    }
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
