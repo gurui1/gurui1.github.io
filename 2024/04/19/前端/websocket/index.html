@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>模版 | Hexo</title>
+  <title>websocket | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="模版 | Hexo">
+  <meta name="description" content="websocket | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这段代码确实建立了一个 WebSocket 长连接，并在连接建立后发送了初始化消息。让我来解释一下：  WebSocket 连接建立： 1let ws &#x3D; new WebSocket(&quot;ws:&#x2F;&#x2F;123.207.5.119:9093&#x2F;&quot;);  url: “ammoniaGas&#x2F;get”,不需要写  因为WebSocket 长连接不需要像传统的 HTTP 请求那样指定接">
 <meta property="og:type" content="article">
@@ -297,9 +297,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-moban" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-前端/websocket" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">模版</h1>
+        <h1 class="article-title">websocket</h1>
     
     <div class="article-meta">
         
@@ -309,7 +309,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-15 13:40:52'>2024-03-19 17:29</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-19 21:37:56'>2024-04-19 21:36</time>
         
     </div>
     <div class="article-meta">
@@ -347,7 +347,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/./img/bb.jpg" alt="图片"><br><a target="_blank" rel="noopener" href="https://www.runoob.com/try/try.php?filename=tryhtml5_canvas_tut_path2">网址</a></p>
+        <p>这段代码确实建立了一个 WebSocket 长连接，并在连接建立后发送了初始化消息。让我来解释一下：</p>
+<ol>
+<li><p><strong>WebSocket 连接建立：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&quot;ws://123.207.5.119:9093/&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p> url: “ammoniaGas&#x2F;get”,不需要写  因为WebSocket 长连接不需要像传统的 HTTP 请求那样指定接口路径。<br>这一行代码通过 <code>new WebSocket()</code> 创建了一个 WebSocket 对象，并指定了服务器的地址和端口号。这样就建立了与服务器的 WebSocket 连接。</p>
+</li>
+<li><p><strong>连接建立后发送初始化消息：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ws.<span class="property">onopen</span> = <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="comment">// 初始化消息的 payload</span></span><br><span class="line">  <span class="keyword">let</span> payLoad = &#123;</span><br><span class="line">    <span class="comment">// 根据实际需要构造参数</span></span><br><span class="line">    <span class="attr">pageSize</span>: <span class="string">&quot;24&quot;</span>,</span><br><span class="line">    <span class="attr">interval</span>: <span class="string">&quot;60&quot;</span>,</span><br><span class="line">    <span class="attr">code</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">    <span class="attr">startTime</span>: <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;yesterdaytime&quot;</span>),</span><br><span class="line">    <span class="attr">endTime</span>: <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;nowtime&quot;</span>),</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// 发送初始化消息，订阅 AEData 主题，并附带 payload</span></span><br><span class="line">  ws.<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123; <span class="attr">action</span>: <span class="string">&quot;subscribe&quot;</span>, <span class="attr">topic</span>: <span class="string">&quot;AEData&quot;</span>, <span class="attr">payload</span>: payLoad &#125;));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当 WebSocket 连接成功建立时，<code>ws.onopen</code> 事件触发，会执行这个回调函数。在这个回调函数中，客户端发送了一个初始化消息，通过 <code>ws.send()</code> 方法发送给服务器。这个初始化消息包含了订阅动作 (<code>action: &quot;subscribe&quot;</code>) 和订阅的主题 (<code>topic: &quot;AEData&quot;</code>)，以及附带的参数 (<code>payload</code>)。</p>
+</li>
+<li><p><strong>处理服务器发送的消息：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ws.<span class="property">onmessage</span> = <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="comment">// 处理服务器发送的消息</span></span><br><span class="line">  <span class="keyword">let</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(event.<span class="property">data</span>);</span><br><span class="line">  <span class="keyword">let</span> resArr = data.<span class="property">data</span>.<span class="property">data</span>;</span><br><span class="line">  <span class="comment">// 处理接收到的数据并更新界面</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = resArr.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="comment">// 处理数据</span></span><br><span class="line">    echarty.<span class="property">value</span>.<span class="title function_">push</span>(resArr[i].<span class="property">avg</span>[<span class="number">0</span>].<span class="property">value</span>);</span><br><span class="line">    <span class="keyword">let</span> value = resArr[i].<span class="property">createTime</span>.<span class="title function_">slice</span>(<span class="number">5</span>, <span class="number">16</span>);</span><br><span class="line">    <span class="keyword">let</span> lines = value.<span class="title function_">match</span>(<span class="regexp">/.&#123;1,6&#125;/g</span>);</span><br><span class="line">    <span class="keyword">let</span> add = lines.<span class="title function_">join</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    echartX.<span class="property">value</span>.<span class="title function_">push</span>(add);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 初始化 echarts</span></span><br><span class="line">  <span class="title function_">initEcharts</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当客户端接收到来自服务器的消息时，<code>ws.onmessage</code> 事件触发，会执行这个回调函数。在这个回调函数中，客户端处理接收到的消息，更新界面或执行其他操作。在你提供的代码中，处理了接收到的数据，并更新了图表。</p>
+</li>
+</ol>
 
       
        
